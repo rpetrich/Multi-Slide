@@ -1,0 +1,9 @@
+Package: com.infectionfx.multislide
+Name: multislide
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: infectionfx
+Author: infectionfx
+Section: Tweaks
