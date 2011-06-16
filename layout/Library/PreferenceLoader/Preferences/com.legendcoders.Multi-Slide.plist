@@ -38,23 +38,25 @@
 			<key>label</key>
 			<string>Slide One</string>
 			<key>validTitles</key>
-			<array>
-			<string>Mail</string>
-			<string>Safari</string>
-			<string>iPod</string>
-			<string>Phone</string>
-			<string>Message</string>
-			<string>Maps</string>
-			</array>
-			<key>validValues</key>
-			<array>
-			<string>com.apple.mobilemail</string>
-			<string>com.apple.mobilesafari</string>
-			<string>com.apple.mobileipod</string>
-			<string>com.apple.mobilephone</string>
-			<string>com.apple.MobileSMS</string>
-			<string>com.apple.Maps</string>
-			</array>
+						<array>
+						<string>Mail</string>
+						<string>Safari</string>
+						<string>iPod</string>
+						<string>Phone</string>
+						<string>Message</string>
+						<string>Maps</string>
+						<string>Camera</string>
+						</array>
+						<key>validValues</key>
+						<array>
+						<string>com.apple.mobilemail</string>
+						<string>com.apple.mobilesafari</string>
+						<string>com.apple.mobileipod</string>
+						<string>com.apple.mobilephone</string>
+						<string>com.apple.MobileSMS</string>
+						<string>com.apple.Maps</string>
+						<string>com.apple.camera</string>
+						</array>
 			</dict>
 		
 			
@@ -75,23 +77,25 @@
 				<key>label</key>
 				<string>Slide Two</string>
 				<key>validTitles</key>
-					<array>
-					<string>Mail</string>
-					<string>Safari</string>
-					<string>iPod</string>
-					<string>Phone</string>
-					<string>Message</string>
-					<string>Maps</string>
-					</array>
-					<key>validValues</key>
-					<array>
-					<string>com.apple.mobilemail</string>
-					<string>com.apple.mobilesafari</string>
-					<string>com.apple.mobileipod</string>
-					<string>com.apple.mobilephone</string>
-					<string>com.apple.MobileSMS</string>
-					<string>com.apple.Maps</string>
-					</array>
+							<array>
+							<string>Mail</string>
+							<string>Safari</string>
+							<string>iPod</string>
+							<string>Phone</string>
+							<string>Message</string>
+							<string>Maps</string>
+							<string>Camera</string>
+							</array>
+							<key>validValues</key>
+							<array>
+							<string>com.apple.mobilemail</string>
+							<string>com.apple.mobilesafari</string>
+							<string>com.apple.mobileipod</string>
+							<string>com.apple.mobilephone</string>
+							<string>com.apple.MobileSMS</string>
+							<string>com.apple.Maps</string>
+							<string>com.apple.camera</string>
+							</array>
 					</dict>
 	
 					<dict>
@@ -110,23 +114,25 @@
 					<key>label</key>
 					<string>Slide Three</string>
 					<key>validTitles</key>
-						<array>
-						<string>Mail</string>
-						<string>Safari</string>
-						<string>iPod</string>
-						<string>Phone</string>
-						<string>Message</string>
-						<string>Maps</string>
-						</array>
-						<key>validValues</key>
-						<array>
-						<string>com.apple.mobilemail</string>
-						<string>com.apple.mobilesafari</string>
-						<string>com.apple.mobileipod</string>
-						<string>com.apple.mobilephone</string>
-						<string>com.apple.MobileSMS</string>
-						<string>com.apple.Maps</string>
-						</array>
+								<array>
+								<string>Mail</string>
+								<string>Safari</string>
+								<string>iPod</string>
+								<string>Phone</string>
+								<string>Message</string>
+								<string>Maps</string>
+								<string>Camera</string>
+								</array>
+								<key>validValues</key>
+								<array>
+								<string>com.apple.mobilemail</string>
+								<string>com.apple.mobilesafari</string>
+								<string>com.apple.mobileipod</string>
+								<string>com.apple.mobilephone</string>
+								<string>com.apple.MobileSMS</string>
+								<string>com.apple.Maps</string>
+								<string>com.apple.camera</string>
+								</array>
 						</dict>
 		
 						<dict>
@@ -143,7 +149,7 @@
 						<key>key</key>
 						<string>SlideFour</string>
 						<key>label</key>
-						<string>Slide Five</string>
+						<string>Slide Four</string>
 						<key>validTitles</key>
 							<array>
 							<string>Mail</string>
@@ -152,6 +158,7 @@
 							<string>Phone</string>
 							<string>Message</string>
 							<string>Maps</string>
+							<string>Camera</string>
 							</array>
 							<key>validValues</key>
 							<array>
@@ -161,6 +168,7 @@
 							<string>com.apple.mobilephone</string>
 							<string>com.apple.MobileSMS</string>
 							<string>com.apple.Maps</string>
+							<string>com.apple.camera</string>
 							</array>
 							</dict>
 			
@@ -180,23 +188,25 @@
 							<key>label</key>
 							<string>Slide Five</string>
 							<key>validTitles</key>
-								<array>
-								<string>Mail</string>
-								<string>Safari</string>
-								<string>iPod</string>
-								<string>Phone</string>
-								<string>Message</string>
-								<string>Maps</string>
-								</array>
-								<key>validValues</key>
-								<array>
-								<string>com.apple.mobilemail</string>
-								<string>com.apple.mobilesafari</string>
-								<string>com.apple.mobileipod</string>
-								<string>com.apple.mobilephone</string>
-								<string>com.apple.MobileSMS</string>
-								<string>com.apple.Maps</string>
-								</array>
+										<array>
+										<string>Mail</string>
+										<string>Safari</string>
+										<string>iPod</string>
+										<string>Phone</string>
+										<string>Message</string>
+										<string>Maps</string>
+										<string>Camera</string>
+										</array>
+										<key>validValues</key>
+										<array>
+										<string>com.apple.mobilemail</string>
+										<string>com.apple.mobilesafari</string>
+										<string>com.apple.mobileipod</string>
+										<string>com.apple.mobilephone</string>
+										<string>com.apple.MobileSMS</string>
+										<string>com.apple.Maps</string>
+										<string>com.apple.camera</string>
+										</array>
 								</dict>
 				
 				
