@@ -1,5 +1,5 @@
 GO_EASY_ON_ME=1
-SYSROOT=/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk
+SYSROOT=/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.0.sdk
 include theos/makefiles/common.mk
 
 TWEAK_NAME = multislide
