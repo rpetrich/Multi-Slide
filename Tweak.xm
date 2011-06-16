@@ -1,10 +1,14 @@
 #import <UIKit/UIView.h>
 
-#import <springboard_4.0/SBApplication.h>
+#import <SpringBoard/SpringBoard.h>
 @interface TPBottomLockBar : UIView 
 -(void)_setLabel:(id)label;
 -(void)launchApplication:(int)slideState; // Custom Function
 -(void)launchApplicationWithBundle:(NSString *)bundleId; // Custom
+@end
+
+@interface SBUIController (iOS40)
+- (void)activateApplicationFromSwitcher:(SBApplication *)application;
 @end
 
 static BOOL DragStopped;
@@ -66,8 +70,8 @@ static int dragCount = 0;
 
 %new(v@:c)
 -(void)launchApplicationWithBundle:(NSString *)bundleId {
-	SBApplication *app = [[objc_getClass("SBApplicationController") sharedInstance] applicationWithDisplayIdentifier:bundleId];
-    [[objc_getClass("SBUIController") sharedInstance] activateApplicationFromSwitcher:app];
+	SBApplication *app = [[%c(SBApplicationController) sharedInstance] applicationWithDisplayIdentifier:bundleId];
+    [[%c(SBUIController) sharedInstance] activateApplicationFromSwitcher:app];
 }
 
 
