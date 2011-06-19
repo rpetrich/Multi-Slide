@@ -13,7 +13,6 @@
 
 #define kSettingsPath @"/var/mobile/Library/Preferences/com.legendcoders.Multi-Slide.plist"
 
-static BOOL DragStopped;
 static BOOL allowUnlock;
 static CGFloat dragAmount;
 static NSInteger dragCount;
@@ -28,7 +27,6 @@ static NSInteger dragCount;
 
 -(void)upInKnob {
 	%orig;
-	DragStopped = YES;
 
 	switch (dragCount)
 	{
