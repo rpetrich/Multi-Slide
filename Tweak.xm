@@ -3,8 +3,6 @@
 #import <SpringBoard/SpringBoard.h>
 @interface TPBottomLockBar : UIView 
 -(void)_setLabel:(id)label;
--(void)launchApplication:(int)slideState; // Custom Function
--(void)launchApplicationWithBundle:(NSString *)bundleId; // Custom
 @end
 
 @interface SBUIController (iOS40)
@@ -19,47 +17,13 @@ static NSInteger dragCount;
 
 %hook SBAwayLockBar
 	
--(void)downInKnob {
-	if( dragCount == 1) { dragCount = 2; [self _setLabel:@"Slide Two"];  }	
-	if(dragCount == 3) { dragCount = 4; [self _setLabel:@"Slide Four"];  }
-	if(dragAmount == 1.0f && dragCount == 5) { dragCount = 6; [self _setLabel:@"Slide Five"]; }
-}
-
--(void)upInKnob {
-	%orig;
-
-	switch (dragCount)
-	{
-		case 1:
-		NSLog(@"Unlocking Device....");
-		allowUnlock = YES;
-		[self unlock];
-		break;
-		
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-		case 6:
-		[self launchApplication:dragCount];
-		break;
-	}
-	
-	dragCount = 0;
-	NSLog(@"Drag Count now = 0");
-	[self _setLabel:@"slide to unlock"];
-}
-
-
-%new(v@:c)
--(void)launchApplicationWithBundle:(NSString *)bundleId {
-	SBApplication *app = [[%c(SBApplicationController) sharedInstance] applicationWithDisplayIdentifier:bundleId];
+static void LaunchApplicationWithDisplayIdentifier(NSString *displayIdentifier) {
+	NSLog(@"Multi-Slide: Launching %@", displayIdentifier);
+	SBApplication *app = [[%c(SBApplicationController) sharedInstance] applicationWithDisplayIdentifier:displayIdentifier];
     [[%c(SBUIController) sharedInstance] activateApplicationFromSwitcher:app];
 }
 
-
-%new(v@:c)
--(void)launchApplication:(int)slideState {
+static void LaunchApplicationWithSlideState(int slideState) {
 	NSString *keyToOpen;
 	switch (slideState) {
 		case 2:
@@ -83,9 +47,40 @@ static NSInteger dragCount;
 
 	NSDictionary *settingsDictionary = [NSDictionary dictionaryWithContentsOfFile:kSettingsPath];
 	NSString *displayIdentifier = [settingsDictionary objectForKey:keyToOpen];
-	NSLog(@"Launching %@", displayIdentifier);
-	[self launchApplicationWithBundle:displayIdentifier];
+	LaunchApplicationWithDisplayIdentifier(displayIdentifier);
 }
+
+-(void)downInKnob {
+	if( dragCount == 1) { dragCount = 2; [self _setLabel:@"Slide Two"];  }	
+	if(dragCount == 3) { dragCount = 4; [self _setLabel:@"Slide Four"];  }
+	if(dragAmount == 1.0f && dragCount == 5) { dragCount = 6; [self _setLabel:@"Slide Five"]; }
+}
+
+-(void)upInKnob {
+	%orig;
+
+	switch (dragCount)
+	{
+		case 1:
+			NSLog(@"Multi-Slide: Unlocking Device....");
+			allowUnlock = YES;
+			[self unlock];
+			break;
+		
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+			LaunchApplicationWithSlideState(dragCount);
+			break;
+	}
+	
+	dragCount = 0;
+	NSLog(@"Drag Count now = 0");
+	[self _setLabel:@"slide to unlock"];
+}
+
 
 	
 
