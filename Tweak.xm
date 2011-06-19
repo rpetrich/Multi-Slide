@@ -13,6 +13,7 @@ static BOOL allowUnlock;
 static CGFloat dragAmount;
 static NSInteger dragCount;
 static BOOL shouldCenterLabel;
+static SBApplication *pendingApplication;
 
 %hook TPLockKnobView
 
@@ -49,15 +50,6 @@ static SBApplication *ApplicationForSlideState(int slideState)
 	return nil;
 }
 
-static BOOL LaunchApplicationWithSlideState(int slideState) {
-	SBApplication *app = ApplicationForSlideState(slideState);
-	if (app) {
-		[[%c(SBUIController) sharedInstance] activateApplicationFromSwitcher:app];
-		return YES;
-	}
-	return NO;
-}
-
 static NSString *DisplayNameForSlideState(int slideState, NSString *defaultName) {
 	SBApplication *app = ApplicationForSlideState(slideState);
 	NSString *result = [app displayName];
@@ -91,10 +83,10 @@ static void ResetDimTimer()
 			break;
 
 		default:
-			if (!LaunchApplicationWithSlideState(dragCount)) {
-				allowUnlock = YES;
-				[self unlock];
-			}
+			[pendingApplication release];
+			pendingApplication = [ApplicationForSlideState(dragCount) retain];
+			allowUnlock = YES;
+			[self unlock];
 			break;
 	}
 	
@@ -165,4 +157,19 @@ static void ResetDimTimer()
 	}
 }
 	
+%end
+
+%hook SBAwayController
+
+- (void)_finishedUnlockAttemptWithStatus:(NSInteger)status
+{
+	// Defer activating application until we get notice that the unlock succeeded
+	%orig;
+	if ((status == 1) && pendingApplication) {
+		[[%c(SBUIController) sharedInstance] activateApplicationFromSwitcher:pendingApplication];
+		[pendingApplication release];
+		pendingApplication = nil;
+	}
+}
+
 %end
