@@ -100,9 +100,22 @@ static void LaunchApplicationWithSlideState(int slideState) {
 -(void)knobDragged:(float)dragged
 {
 	dragAmount = dragged;
-	if(dragAmount == 1.0f && dragCount == 0) { dragCount = 1;  [self _setLabel:@"Slide One"]; }	
-	if(dragAmount == 1.0f && dragCount == 2) { dragCount = 3;  [self _setLabel:@"Slide Three"]; }
-	if(dragAmount == 1.0f && dragCount == 4) { dragCount = 5;  [self _setLabel:@"Slide Five"]; }
+	if (dragged == 1.0f) {
+		switch (dragCount) {
+			case 0:
+				dragCount = 1;
+				[self _setLabel:@"Slide One"];
+				break;
+			case 2:
+				dragCount = 3;
+				[self _setLabel:@"Slide Three"];
+				break;
+			case 3:
+				dragCount = 5;
+				[self _setLabel:@"Slide Five"];
+				break;
+		}
+	}
 }
 	
 -(void)unlock {
