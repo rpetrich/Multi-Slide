@@ -1,230 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>entry</key>
-	<dict>
-		<key>cell</key>
-		<string>PSLinkCell</string>
-		<key>icon</key>
-		<string>Multi-Slide.png</string>
-		<key>label</key>
-		<string>Multi-Slide</string>
-	</dict>
-	<key>items</key>
-	<array>
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			<key>isStaticText</key>
-			<true/>
-			<key>label</key>
-			<string>Multi-Slide Settings:</string>
-		</dict>
-		
-			<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			</dict>
-			<dict>
-			<key>cell</key>
-			<string>PSLinkListCell</string>
-			<key>defaults</key>
-			<string>com.legendcoders.Multi-Slide</string>
-			<key>detail</key>
-			<string>PSListItemsController</string>
-			<key>key</key>
-			<string>SlideOne</string>
-			<key>label</key>
-			<string>Slide One</string>
-			<key>validTitles</key>
-						<array>
-						<string>Mail</string>
-						<string>Safari</string>
-						<string>iPod</string>
-						<string>Phone</string>
-						<string>Message</string>
-						<string>Maps</string>
-						<string>Camera</string>
-						</array>
-						<key>validValues</key>
-						<array>
-						<string>com.apple.mobilemail</string>
-						<string>com.apple.mobilesafari</string>
-						<string>com.apple.mobileipod</string>
-						<string>com.apple.mobilephone</string>
-						<string>com.apple.MobileSMS</string>
-						<string>com.apple.Maps</string>
-						<string>com.apple.camera</string>
-						</array>
-			</dict>
-		
-			
-			
-				<dict>
-				<key>cell</key>
-				<string>PSGroupCell</string>
-				</dict>
-				<dict>
-				<key>cell</key>
-				<string>PSLinkListCell</string>
-				<key>defaults</key>
-				<string>com.legendcoders.Multi-Slide</string>
-				<key>detail</key>
-				<string>PSListItemsController</string>
-				<key>key</key>
-				<string>SlideTwo</string>
-				<key>label</key>
-				<string>Slide Two</string>
-				<key>validTitles</key>
-							<array>
-							<string>Mail</string>
-							<string>Safari</string>
-							<string>iPod</string>
-							<string>Phone</string>
-							<string>Message</string>
-							<string>Maps</string>
-							<string>Camera</string>
-							</array>
-							<key>validValues</key>
-							<array>
-							<string>com.apple.mobilemail</string>
-							<string>com.apple.mobilesafari</string>
-							<string>com.apple.mobileipod</string>
-							<string>com.apple.mobilephone</string>
-							<string>com.apple.MobileSMS</string>
-							<string>com.apple.Maps</string>
-							<string>com.apple.camera</string>
-							</array>
-					</dict>
-	
-					<dict>
-					<key>cell</key>
-					<string>PSGroupCell</string>
-					</dict>
-					<dict>
-					<key>cell</key>
-					<string>PSLinkListCell</string>
-					<key>defaults</key>
-					<string>com.legendcoders.Multi-Slide</string>
-					<key>detail</key>
-					<string>PSListItemsController</string>
-					<key>key</key>
-					<string>SlideThree</string>
-					<key>label</key>
-					<string>Slide Three</string>
-					<key>validTitles</key>
-								<array>
-								<string>Mail</string>
-								<string>Safari</string>
-								<string>iPod</string>
-								<string>Phone</string>
-								<string>Message</string>
-								<string>Maps</string>
-								<string>Camera</string>
-								</array>
-								<key>validValues</key>
-								<array>
-								<string>com.apple.mobilemail</string>
-								<string>com.apple.mobilesafari</string>
-								<string>com.apple.mobileipod</string>
-								<string>com.apple.mobilephone</string>
-								<string>com.apple.MobileSMS</string>
-								<string>com.apple.Maps</string>
-								<string>com.apple.camera</string>
-								</array>
-						</dict>
-		
-						<dict>
-						<key>cell</key>
-						<string>PSGroupCell</string>
-						</dict>
-						<dict>
-						<key>cell</key>
-						<string>PSLinkListCell</string>
-						<key>defaults</key>
-						<string>com.legendcoders.Multi-Slide</string>
-						<key>detail</key>
-						<string>PSListItemsController</string>
-						<key>key</key>
-						<string>SlideFour</string>
-						<key>label</key>
-						<string>Slide Four</string>
-						<key>validTitles</key>
-							<array>
-							<string>Mail</string>
-							<string>Safari</string>
-							<string>iPod</string>
-							<string>Phone</string>
-							<string>Message</string>
-							<string>Maps</string>
-							<string>Camera</string>
-							</array>
-							<key>validValues</key>
-							<array>
-							<string>com.apple.mobilemail</string>
-							<string>com.apple.mobilesafari</string>
-							<string>com.apple.mobileipod</string>
-							<string>com.apple.mobilephone</string>
-							<string>com.apple.MobileSMS</string>
-							<string>com.apple.Maps</string>
-							<string>com.apple.camera</string>
-							</array>
-							</dict>
-			
-							<dict>
-							<key>cell</key>
-							<string>PSGroupCell</string>
-							</dict>
-							<dict>
-							<key>cell</key>
-							<string>PSLinkListCell</string>
-							<key>defaults</key>
-							<string>com.legendcoders.Multi-Slide</string>
-							<key>detail</key>
-							<string>PSListItemsController</string>
-							<key>key</key>
-							<string>SlideFive</string>
-							<key>label</key>
-							<string>Slide Five</string>
-							<key>validTitles</key>
-										<array>
-										<string>Mail</string>
-										<string>Safari</string>
-										<string>iPod</string>
-										<string>Phone</string>
-										<string>Message</string>
-										<string>Maps</string>
-										<string>Camera</string>
-										</array>
-										<key>validValues</key>
-										<array>
-										<string>com.apple.mobilemail</string>
-										<string>com.apple.mobilesafari</string>
-										<string>com.apple.mobileipod</string>
-										<string>com.apple.mobilephone</string>
-										<string>com.apple.MobileSMS</string>
-										<string>com.apple.Maps</string>
-										<string>com.apple.camera</string>
-										</array>
-								</dict>
-				
-				
-							<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			<key>footerText</key>
-			<string>Follow me on Twitter: http://twitter.com/InfectionFX for new tweaks! :)</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			<key>footerText</key>
-			<string>Please support my Coffee addiction! You can PayPal donate to tylernettleton@gmail.com to support! :P</string>
-		</dict>
-		
-	</array>
-	<key>title</key>
-	<string>Multi-Slide</string>
-</dict>
-</plist>
+entry = {
+	cell = PSLinkCell;
+	icon = "Multi-Slide.png";
+	label = "Multi-Slide";
+};
+title = "Multi-Slide";
+items = (
+	{
+		cell = PSGroupCell;
+		label = "Actions";
+		footerText = "Follow me on Twitter: http://twitter.com/InfectionFX for new tweaks! :)";
+	},
+	{
+		cell = PSLinkCell;
+		bundle = AppList;
+		isController = 1;
+		label = "Slide One";
+		ALSettingsPath = "/var/mobile/Library/Preferences/com.legendcoders.Multi-Slide.plist";
+		ALSettingsKey = "Slide1";
+		ALSingleEnabledMode = 1;
+	},
+	{
+		cell = PSLinkCell;
+		bundle = AppList;
+		isController = 1;
+		label = "Slide Two";
+		ALSettingsPath = "/var/mobile/Library/Preferences/com.legendcoders.Multi-Slide.plist";
+		ALSettingsKey = "Slide2";
+		ALSingleEnabledMode = 1;
+	},
+	{
+		cell = PSLinkCell;
+		bundle = AppList;
+		isController = 1;
+		label = "Slide Three";
+		ALSettingsPath = "/var/mobile/Library/Preferences/com.legendcoders.Multi-Slide.plist";
+		ALSettingsKey = "Slide3";
+		ALSingleEnabledMode = 1;
+	},
+	{
+		cell = PSLinkCell;
+		bundle = AppList;
+		isController = 1;
+		label = "Slide Four";
+		ALSettingsPath = "/var/mobile/Library/Preferences/com.legendcoders.Multi-Slide.plist";
+		ALSettingsKey = "Slide4";
+		ALSingleEnabledMode = 1;
+	},
+	{
+		cell = PSLinkCell;
+		bundle = AppList;
+		isController = 1;
+		label = "Slide Five";
+		ALSettingsPath = "/var/mobile/Library/Preferences/com.legendcoders.Multi-Slide.plist";
+		ALSettingsKey = "Slide5";
+		ALSingleEnabledMode = 1;
+	},
+	{
+		cell = PSLinkCell;
+		bundle = AppList;
+		isController = 1;
+		label = "Slide Six";
+		ALSettingsPath = "/var/mobile/Library/Preferences/com.legendcoders.Multi-Slide.plist";
+		ALSettingsKey = "Slide6";
+		ALSingleEnabledMode = 1;
+	},
+	{
+		cell = PSGroupCell;
+		footerText = "Please support my Coffee addiction! You can PayPal donate to tylernettleton@gmail.com to support! :P}";
+	}
+);

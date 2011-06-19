@@ -1,6 +1,5 @@
-#import <UIKit/UIView.h>
-
 #import <SpringBoard/SpringBoard.h>
+
 @interface TPBottomLockBar : UIView 
 -(void)_setLabel:(id)label;
 @end
@@ -17,55 +16,37 @@ static NSInteger dragCount;
 
 %hook SBAwayLockBar
 	
-static void LaunchApplicationWithDisplayIdentifier(NSString *displayIdentifier) {
-	NSLog(@"Multi-Slide: Launching %@", displayIdentifier);
-	SBApplication *app = [[%c(SBApplicationController) sharedInstance] applicationWithDisplayIdentifier:displayIdentifier];
-    [[%c(SBUIController) sharedInstance] activateApplicationFromSwitcher:app];
-}
-
-static void LaunchApplicationWithSlideState(int slideState) {
-	NSString *keyToOpen;
-	switch (slideState) {
-		case 2:
-			keyToOpen = @"SlideOne";
-			break;
-		case 3:
-			keyToOpen = @"SlideTwo";
-			break;
-		case 4:
-			keyToOpen = @"SlideThree";
-			break;
-		case 5:
-			keyToOpen = @"SlideFour";
-			break;
-		case 6:
-			keyToOpen = @"SlideFive";
-			break;
-		default:
-			return;
-	}
-
+static SBApplication *ApplicationForSlideState(int slideState)
+{
+	NSString *keyToOpen = [NSString stringWithFormat:@"Slide%d", slideState];
 	NSDictionary *settingsDictionary = [NSDictionary dictionaryWithContentsOfFile:kSettingsPath];
 	NSString *displayIdentifier = [settingsDictionary objectForKey:keyToOpen];
-	LaunchApplicationWithDisplayIdentifier(displayIdentifier);
+	if (displayIdentifier)
+		return [[%c(SBApplicationController) sharedInstance] applicationWithDisplayIdentifier:displayIdentifier];
+	return nil;
+}
+
+static BOOL LaunchApplicationWithSlideState(int slideState) {
+	SBApplication *app = ApplicationForSlideState(slideState);
+	if (app) {
+		[[%c(SBUIController) sharedInstance] activateApplicationFromSwitcher:app];
+		return YES;
+	}
+	return NO;
+}
+
+static NSString *DisplayNameForSlideState(int slideState, NSString *defaultName) {
+	SBApplication *app = ApplicationForSlideState(slideState);
+	NSString *result = [app displayName];
+	if (result)
+		return result;
+	return defaultName;
 }
 
 -(void)downInKnob {
-	switch (dragCount) {
-		case 1:
-			dragCount = 2;
-			[self _setLabel:@"Slide Two"];
-			break;
-		case 3:
-			dragCount = 4;
-			[self _setLabel:@"Slide Four"];
-			break;
-		case 5:
-			if (dragAmount == 1.0f) {
-				dragCount = 6;
-				[self _setLabel:@"Slide Five"];
-			}
-			break;
+	if (dragCount & 1) {
+		dragCount++;
+		[self _setLabel:DisplayNameForSlideState(dragCount, @"unlock")];
 	}
 }
 
@@ -74,23 +55,18 @@ static void LaunchApplicationWithSlideState(int slideState) {
 
 	switch (dragCount)
 	{
-		case 1:
-			NSLog(@"Multi-Slide: Unlocking Device....");
-			allowUnlock = YES;
-			[self unlock];
+		case 0:
 			break;
-		
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-		case 6:
-			LaunchApplicationWithSlideState(dragCount);
+
+		default:
+			if (!LaunchApplicationWithSlideState(dragCount)) {
+				allowUnlock = YES;
+				[self unlock];
+			}
 			break;
 	}
 	
 	dragCount = 0;
-	NSLog(@"Drag Count now = 0");
 	[self _setLabel:@"slide to unlock"];
 }
 
@@ -101,19 +77,9 @@ static void LaunchApplicationWithSlideState(int slideState) {
 {
 	dragAmount = dragged;
 	if (dragged == 1.0f) {
-		switch (dragCount) {
-			case 0:
-				dragCount = 1;
-				[self _setLabel:@"Slide One"];
-				break;
-			case 2:
-				dragCount = 3;
-				[self _setLabel:@"Slide Three"];
-				break;
-			case 3:
-				dragCount = 5;
-				[self _setLabel:@"Slide Five"];
-				break;
+		if (!(dragCount & 1)) {
+			dragCount++;
+			[self _setLabel:DisplayNameForSlideState(dragCount, @"unlock")];
 		}
 	}
 }
