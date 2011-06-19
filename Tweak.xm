@@ -51,9 +51,22 @@ static void LaunchApplicationWithSlideState(int slideState) {
 }
 
 -(void)downInKnob {
-	if( dragCount == 1) { dragCount = 2; [self _setLabel:@"Slide Two"];  }	
-	if(dragCount == 3) { dragCount = 4; [self _setLabel:@"Slide Four"];  }
-	if(dragAmount == 1.0f && dragCount == 5) { dragCount = 6; [self _setLabel:@"Slide Five"]; }
+	switch (dragCount) {
+		case 1:
+			dragCount = 2;
+			[self _setLabel:@"Slide Two"];
+			break;
+		case 3:
+			dragCount = 4;
+			[self _setLabel:@"Slide Four"];
+			break;
+		case 5:
+			if (dragAmount == 1.0f) {
+				dragCount = 6;
+				[self _setLabel:@"Slide Five"];
+			}
+			break;
+	}
 }
 
 -(void)upInKnob {
